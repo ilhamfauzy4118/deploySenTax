@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SenTax</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}" />
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="navbar-container">
+          <a href="#" class="logo">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" />
+          </a>
+          <!-- Menu toggle button for mobile -->
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <span class="menu-icon"></span>
+          </button>
+          <!-- Navbar links (hidden by default on mobile) -->
+          <ul class="navbar-links">
+            <li><a href="#" id="how-to-use">How to Use?</a></li>
+            <li><a href="#" id="contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="content">
+        <!-- hero section -->
+        <article>
+          <section class="hero">
+            <div class="hero-container">
+              <!-- Bagian Kiri (Teks) -->
+              <div class="hero-text">
+                <p>
+                  Aplikasi ini dirancang untuk menganalisis sentimen pengguna pada layanan perpajakan seperti NewSakpole, SapaWarga, dan TimSalut. Dengan algoritma Support Vector Machine (SVM), penelitian ini berhasil mencapai akurasi 82.6% dalam mengelompokkan sentimen menjadi positif, negatif, dan netral, memberikan gambaran jelas tentang opini masyarakat.
+                </p>
+                <p>
+                  Melalui visualisasi interaktif, aplikasi ini mempermudah pengembang dan instansi terkait untuk memahami pola sentimen dan meningkatkan layanan berdasarkan data yang akurat. Solusi ini cocok untuk membantu pengambilan keputusan yang lebih efektif dan berbasis data.
+                </p>
+              </div>
+
+              <!-- Bagian Kanan (Gambar) -->
+              <div class="hero-image">
+                <img src="{{ url_for('static', filename='img/M.png') }}" alt="Hero Image" />
+              </div>
+            </div>
+          </section>
+        </article>
+
+        <!-- Form Cluster -->
+        <article id="form-cluster" class="form-cluster">
+          <section class="form-section">
+            <h1 class="form-title">Cobalah sekarang dan temukan bagaimana algoritma Support Vector Machine menganalisis komentar pengguna.</h1>
+            <div class="form-container">
+              <form action="/scrape" method="POST">
+                <div class="form-group">
+                  <div class="input-group">
+                    <label for="app_id">Application ID</label>
+                    <input id="app_id" name="app_id" type="text" class="form-input" placeholder="Masukkan ID Aplikasi" required />
+                  </div>
+
+                  <div class="input-group">
+                    <label for="limit">Jumlah Komentar</label>
+                    <input id="limit" name="limit" type="number" class="form-input" placeholder="Masukkan Jumlah Komentar" required />
+                  </div>
+
+                  <div class="input-group">
+                    <label for="filter_score">Score</label>
+                    <select id="filter_score" name="filter_score" class="form-input" required>
+                      <option value="None" disabled selected>Pilih Score</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="None">All</option>
+                    </select>
+                  </div>
+
+                  <div class="submit-button-container">
+                    <button type="submit" class="submit-button">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
+        </article>
+
+        <!-- how to use? -->
+        <article id="how-to-use-section">
+          <section class="how-to-use-section">
+            <h1 class="how-to-use-title">How to Use?</h1>
+            <div class="how-to-use-content">
+              <ol class="how-to-use-list">
+                <li>
+                  <p class="how-to-use-step-title">Masukkan Application ID</p>
+                </li>
+                <li>
+                  <p class="how-to-use-step-title">Masukkan Jumlah Komentar yang akan di scraping</p>
+                </li>
+                <li>
+                  <p class="how-to-use-step-title">Pilih score dari 1-5 atau Seluruh score</p>
+                </li>
+                <li>
+                  <p class="how-to-use-step-title">Klik "Submit"</p>
+                </li>
+              </ol>
+            </div>
+          </section>
+        </article>
+
+        <!-- Kontak Kami -->
+        <article id="contact-section">
+          <section class="contact-container">
+            <h1 class="contact-title">Kontak Kami</h1>
+            <p class="contact-subtitle">Jika ada pertanyaan atau kebutuhan lebih lanjut, jangan ragu untuk menghubungi kami.</p>
+            
+            <!-- Mengganti form dengan informasi kontak -->
+            <div class="contact-info">
+              <p>Email: <a href="mailto:ilhamfauzy@sen-tax.com">ilhamfauzy@sen-tax.com</a></p>
+              <p>Telepon: +62 123 456 7890</p>
+              <p>Alamat: Jl. Contoh No. 123, Bandung, Indonesia</p>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+
+    <footer class="footer">
+      <h1 class="footer-title">&copy; ILHAM FAUZY</h1>
+    </footer>
+  </body>
+</html>
